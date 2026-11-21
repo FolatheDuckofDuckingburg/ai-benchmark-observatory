@@ -17,6 +17,10 @@ This repository compares chat-tuned and pretrained model entries across MMLU-Pro
 
 The GitHub Actions run on 2026-11-21 completed successfully on Python 3.11.18 with NumPy 2.4.6, pandas 3.1.1, SciPy 1.17.1, and Matplotlib 3.11.2. The validator found 717 chat rows and 275 pretrained rows. It also found one chat row with a parameter-count placeholder of -1.00 and one pretrained row with a placeholder of 0.00; these rows remain in score-only comparisons but are excluded from analyses requiring positive parameter counts. The pipeline log records source-transcription SHA-256 hashes and dependency versions.
 
+## Regenerated-output comparison
+
+A CI run on 2026-11-21 regenerated all tables and figures. Byte-for-byte Git blob comparisons show that `table_rows.csv`, `table_consolidated.csv`, `size_strata.csv`, `ols_cluster.csv`, and `matched_pairs_results.csv` match their committed versions. The regenerated `sensitivity.csv` differs at the file level and still needs a cell-level review before it is promoted. The regenerated `cluster_bootstrap.csv` intentionally differs because the prior code obtained each confidence-interval endpoint from separate bootstrap runs; the committed CSV has now been updated to the corrected single-run-per-benchmark intervals. Figures were regenerated in the CI artifact but have not yet been compared and promoted to the repository. The CI artifact is therefore the complete record of the regenerated run; do not assume every committed figure is already current.
+
 ## Data handling
 
 The repository includes transcribed text files, a combined CSV, derived statistical CSVs, and figures. Preserve the distinction between the original leaderboard snapshot, transcribed or manually assembled source rows, cleaned/combined analysis data, and derived tables/visualizations.
