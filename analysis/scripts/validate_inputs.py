@@ -32,8 +32,11 @@ def validate_file(group, path):
                 raise ValueError(f"{path}:{line_number}: non-numeric value") from exc
             if not all(math.isfinite(value) for value in values):
                 raise ValueError(f"{path}:{line_number}: non-finite numeric value")
-            if values[0] <= 0:
-                raise ValueError(f"{path}:{line_number}: parameter count must be positive")
+            # The source transcription uses -1.00 and 0.00 as non-positive
+            # parameter-size placeholders. Preserve these rows for score-only
+            # analyses; the size-adjusted analysis excludes params <= 0.
+            if values[0] < 0 and values[0] != -1:
+                raise ValueError(f"{path}:{line_number}: unsupported negative parameter-count sentinel")
             if any(value < 0 or value > 100 for value in values[1:]):
                 raise ValueError(f"{path}:{line_number}: benchmark score outside [0, 100]")
             rows.append(model_id)
