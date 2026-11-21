@@ -31,6 +31,9 @@ This is observational research. Group differences do not establish that conversa
 - Read [the reproducibility notes](docs/REPRODUCIBILITY.md) before attempting to rerun or interpret the analyses.
 - See [CITATION.cff](CITATION.cff) for citation metadata.
 - Install the listed Python dependencies with `python -m pip install -r requirements.txt`.
+- Run the transcription-based analysis pipeline from the repository root with `python analysis/scripts/run_pipeline.py`. The command validates the source rows, regenerates the statistical tables and figures, and writes `results/logs/latest_pipeline_run.log`.
+
+The pipeline starts from the committed transcriptions, not the original leaderboard TSV. It therefore tests reproducibility of the transcribed-data analysis, not independent verification of the transcription against the archived source snapshot.
 
 ## Analysis status and interpretation
 
