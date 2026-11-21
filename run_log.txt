@@ -1,0 +1,250 @@
+          set  bench  n_chat  n_pre  mean_chat  mean_pre  med_chat  med_pre  sd_chat  sd_pre    diff   ci_lo   ci_hi       t       df   p      g   g_lo   g_hi  mwu_p   cles  hl_shift  p_holm  mwu_p_holm
+rows(717/275)   MMLU     717    275    26.4212   12.6330     27.50     6.76  13.1299 13.6158 13.7882 11.9091 15.6673 14.4177 480.8939 0.0 1.0386 0.8922 1.1849    0.0 0.7772     15.92     0.0         0.0
+rows(717/275)   GPQA     717    275     6.3494    3.9507      5.37     2.13   4.8965  4.6913  2.3988  1.7370  3.0606  7.1212 516.3026 0.0 0.4952 0.3545 0.6359    0.0 0.6768      2.34     0.0         0.0
+rows(717/275)   MATH     717    275    15.5787    4.9075      9.89     1.66  14.7652  7.3702 10.6712  9.2813 12.0611 15.0675 926.5944 0.0 0.8114 0.6679 0.9549    0.0 0.7987      6.73     0.0         0.0
+rows(717/275)    BBH     717    275    28.5657   14.2033     28.50     8.36  14.4831 13.6559 14.3623 12.4269 16.2978 14.5776 524.0835 0.0 1.0065 0.8606 1.1524    0.0 0.7770     15.70     0.0         0.0
+rows(717/275)   MUSR     717    275     9.1841    7.0778      8.76     5.64   5.5006  4.5630  2.1063  1.4319  2.7807  6.1340 593.9379 0.0 0.4003 0.2602 0.5404    0.0 0.6157      1.94     0.0         0.0
+rows(717/275) IFEval     717    275    53.1350   22.8464     54.11    21.82  18.9783  9.4681 30.2886 28.5025 32.0748 33.2798 926.8543 0.0 1.7918 1.6320 1.9517    0.0 0.9145     31.26     0.0         0.0
+
+consolidated n: {'chat': 705, 'pre': 269}
+                 set  bench  n_chat  n_pre  mean_chat  mean_pre  med_chat  med_pre  sd_chat  sd_pre    diff   ci_lo   ci_hi       t       df   p      g   g_lo   g_hi  mwu_p   cles  hl_shift  p_holm  mwu_p_holm
+consolidated by name   MMLU     705    269    26.4741   12.7980     27.52     7.07  13.1672 13.6968 13.6761 11.7676 15.5847 14.0809 468.1704 0.0 1.0263 0.8786 1.1740    0.0 0.7743    15.815     0.0         0.0
+consolidated by name   GPQA     705    269     6.3683    4.0165      5.37     2.13   4.9006  4.7208  2.3518  1.6800  3.0235  6.8781 501.4336 0.0 0.4844 0.3423 0.6265    0.0 0.6733     2.240     0.0         0.0
+consolidated by name   MATH     705    269    15.6297    4.9989      9.97     1.74  14.7362  7.4247 10.6307  9.2251 12.0364 14.8431 902.7249 0.0 0.8088 0.6638 0.9538    0.0 0.7988     6.720     0.0         0.0
+consolidated by name    BBH     705    269    28.6258   14.3375     28.50     8.36  14.5289 13.7306 14.2883 12.3234 16.2532 14.2864 510.4363 0.0 0.9975 0.8502 1.1448    0.0 0.7746    15.670     0.0         0.0
+consolidated by name   MUSR     705    269     9.1960    7.0170      8.78     5.58   5.4764  4.5222  2.1790  1.5027  2.8553  6.3283 582.4251 0.0 0.4163 0.2746 0.5579    0.0 0.6210     2.020     0.0         0.0
+consolidated by name IFEval     705    269    53.1581   22.9731     54.15    21.85  18.9329  9.5076 30.1850 28.3815 31.9885 32.8470 904.3712 0.0 1.7881 1.6267 1.9494    0.0 0.9137    31.210     0.0         0.0
+
+Duplicate-name rows: {'chat': 24, 'pre': 12} extra rows: {'chat': 12, 'pre': 6}
+names in BOTH groups: ['google/gemma-2-2b-jpn-it', 'microsoft/phi-4']
+identical score vectors, different names:
+  grp                                        name  MMLU  GPQA  MATH   BBH  MUSR  IFEval
+chat              SultanR/SmolTulu-1.7b-Instruct  7.89  2.57  7.93 12.26  1.92   65.41
+chat                 SultanR/SmolTulu-1.7b-it-v0  7.89  2.57  7.93 12.26  1.92   65.41
+chat              NLPark/Shi-Ci-Robin-Test_3AD80 45.78 14.65 31.57 52.27 18.87   72.27
+chat OpenBuddy/openbuddy-nemotron-70b-v23.2-131k 45.78 14.65 31.57 52.27 18.87   72.27
+chat                pankajmathur/orca_mini_phi-4 47.28 16.55 29.53 54.63 18.25   77.81
+chat             pankajmathur/orca_mini_v9_2_14B 47.28 16.55 29.53 54.63 18.25   77.81
+consolidation variant drop_dup score vectors per group {'chat': 714, 'pre': 275} MMLU mean chat/pre 26.391 12.633
+consolidation variant case-insens name {'chat': 705, 'pre': 269} MMLU mean chat/pre 26.473 12.8
+consolidation variant drop dup name+params {'chat': 706, 'pre': 269} MMLU mean chat/pre 26.447 12.8
+
+pretrained names matching instruct/chat/it patterns: 23
+                                             name  IFEval  MMLU
+                    BSC-LT/salamandra-7b-instruct   24.51  8.95
+                allenai/OLMoE-1B-7B-0125-Instruct   67.57 10.17
+                           databricks/dolly-v1-6b   22.24  2.95
+              dnhkng/RYS-Phi-3-medium-4k-instruct   43.91 42.74
+             ehristoforu/Falcon3-MoE-2x7B-Insruct   76.43 34.39
+                              google/flan-t5-base   18.91  3.97
+                             google/flan-t5-large   22.01  7.88
+                             google/flan-t5-small   15.24  2.59
+                                google/flan-t5-xl   22.37 12.74
+                                google/flan-t5-xl   22.07 12.69
+                                  google/flan-ul2   23.93 16.59
+                         google/gemma-2-2b-jpn-it   50.78 17.53
+     huu-ontocord/wide_3b_orpo_stage1.1-ss1-orpo3   15.05  1.83
+             instruction-pretrain/InstructLM-500M   10.28  1.57
+                   jebish7/Llama-3-Nanda-10B-Chat   29.53 23.96
+                    jebish7/Llama-3.1-8B-Instruct   50.58 30.86
+        jebish7/Nemotron-4-Mini-Hindi-4B-Instruct   33.45 17.72
+                jebish7/Nemotron-Mini-4B-Instruct   37.09 19.81
+                            jebish7/gemma-2-2b-it   12.72 19.06
+                            jebish7/gemma-2-9b-it   15.57 34.92
+                    meta-llama/Llama-2-7b-chat-hf   39.86  7.64
+                 meta-llama/Llama-3.1-8B-Instruct   49.22 31.09
+ontocord/ontocord_wide_7b-stacked-stage1-instruct   15.30  1.30
+
+chat names matching base/pretrain patterns: 24
+                                                                       name  IFEval  MMLU
+                                            BlackBeenie/Neos-Llama-3.1-base   17.51  1.24
+                      EpistemeAI2/Fireball-MathMistral-Nemo-Base-2407-v2dpo   30.97  1.64
+SeppeV/SmolLM_pretrained_with_sft_trained_with_1pc_data_on_a_preference_dpo    9.55  1.79
+                                       TTTXXX01/Mistral-7B-Base-SimPO2-5e-7   43.92 19.62
+               athirdpath/Llama-3.1-Instruct_NSFW-pretrained_e1-plus_reddit   45.21 28.50
+                                          gmonsoon/SahabatAI-Rebase-8B-Test   51.56 29.60
+                                      princeton-nlp/Llama-3-Base-8B-SFT-CPO   37.03 21.96
+                                      princeton-nlp/Llama-3-Base-8B-SFT-DPO   41.11 23.09
+                                      princeton-nlp/Llama-3-Base-8B-SFT-IPO   44.87 23.50
+                                      princeton-nlp/Llama-3-Base-8B-SFT-KTO   45.23 22.83
+                                     princeton-nlp/Llama-3-Base-8B-SFT-ORPO   45.17 23.14
+                                     princeton-nlp/Llama-3-Base-8B-SFT-RDPO   44.80 22.38
+                                     princeton-nlp/Llama-3-Base-8B-SFT-RRHF   33.57 20.99
+                                  princeton-nlp/Llama-3-Base-8B-SFT-SLiC-HF   48.90 22.93
+                                    princeton-nlp/Llama-3-Base-8B-SFT-SimPO   46.85 23.39
+                                      princeton-nlp/Mistral-7B-Base-SFT-CPO   46.55 18.35
+                                      princeton-nlp/Mistral-7B-Base-SFT-DPO   44.03 18.28
+                                      princeton-nlp/Mistral-7B-Base-SFT-IPO   48.30 19.91
+                                      princeton-nlp/Mistral-7B-Base-SFT-KTO   47.85 20.79
+                                     princeton-nlp/Mistral-7B-Base-SFT-RDPO   46.06 19.74
+                                     princeton-nlp/Mistral-7B-Base-SFT-RRHF   44.07 15.53
+                                  princeton-nlp/Mistral-7B-Base-SFT-SLiC-HF   51.27 19.79
+                                    princeton-nlp/Mistral-7B-Base-SFT-SimPO   47.01 18.91
+                                          qq8933/OpenLongCoT-Base-Gemma2-2B   19.65  3.51
+
+params<=0:  grp                                             name  params
+chat cognitivecomputations/dolphin-2.9.2-Phi-3-Medium    -1.0
+ pre                           cpayne1303/smallcp2024     0.0
+
+SENSITIVITY (MMLU, GPQA, MATH, BBH, MUSR, IFEval)
+                                                        set  bench  n_chat  n_pre   diff  ci_lo  ci_hi     g   g_lo  g_hi  p_holm  mwu_p_holm
+           excl. flagged-by-name pretrained (instruct-like)   MMLU     717    252 14.075 12.122 16.028 1.059  0.908 1.210   0.000       0.000
+           excl. flagged-by-name pretrained (instruct-like)   GPQA     717    252  2.423  1.736  3.111 0.499  0.354 0.644   0.000       0.000
+           excl. flagged-by-name pretrained (instruct-like)   MATH     717    252 10.762  9.361 12.163 0.813  0.665 0.961   0.000       0.000
+           excl. flagged-by-name pretrained (instruct-like)    BBH     717    252 14.835 12.839 16.831 1.039  0.888 1.190   0.000       0.000
+           excl. flagged-by-name pretrained (instruct-like)   MUSR     717    252  2.300  1.615  2.985 0.437  0.293 0.582   0.000       0.000
+           excl. flagged-by-name pretrained (instruct-like) IFEval     717    252 31.055 29.355 32.755 1.845  1.679 2.010   0.000       0.000
+excl. both-group repos & instruct-like pre & base-like chat   MMLU     691    251 14.479 12.530 16.429 1.089  0.937 1.242   0.000       0.000
+excl. both-group repos & instruct-like pre & base-like chat   GPQA     691    251  2.522  1.840  3.204 0.519  0.373 0.666   0.000       0.000
+excl. both-group repos & instruct-like pre & base-like chat   MATH     691    251 11.247  9.834 12.659 0.849  0.699 0.998   0.000       0.000
+excl. both-group repos & instruct-like pre & base-like chat    BBH     691    251 15.212 13.219 17.205 1.063  0.911 1.215   0.000       0.000
+excl. both-group repos & instruct-like pre & base-like chat   MUSR     691    251  2.399  1.718  3.079 0.456  0.311 0.602   0.000       0.000
+excl. both-group repos & instruct-like pre & base-like chat IFEval     691    251 31.481 29.761 33.201 1.875  1.708 2.043   0.000       0.000
+                                            excl. params<=0   MMLU     716    274 13.728 11.846 15.611 1.034  0.887 1.180   0.000       0.000
+                                            excl. params<=0   GPQA     716    274  2.379  1.716  3.042 0.491  0.350 0.632   0.000       0.000
+                                            excl. params<=0   MATH     716    274 10.651  9.259 12.044 0.809  0.665 0.953   0.000       0.000
+                                            excl. params<=0    BBH     716    274 14.292 12.354 16.231 1.002  0.856 1.148   0.000       0.000
+                                            excl. params<=0   MUSR     716    274  2.079  1.405  2.754 0.395  0.255 0.535   0.000       0.000
+                                            excl. params<=0 IFEval     716    274 30.278 28.489 32.067 1.790  1.630 1.950   0.000       0.000
+                       MMLU>=2 floor excluded (both groups)   MMLU     682    161  7.155  4.958  9.352 0.582  0.408 0.756   0.000       0.000
+                       MMLU>=2 floor excluded (both groups)   GPQA     682    161  0.655 -0.234  1.543 0.133 -0.039 0.305   0.148       0.066
+                       MMLU>=2 floor excluded (both groups)   MATH     682    161  8.615  6.879 10.351 0.623  0.449 0.798   0.000       0.000
+                       MMLU>=2 floor excluded (both groups)    BBH     682    161  7.810  5.532 10.088 0.575  0.402 0.749   0.000       0.000
+                       MMLU>=2 floor excluded (both groups)   MUSR     682    161  0.823 -0.021  1.667 0.154 -0.018 0.326   0.112       0.127
+                       MMLU>=2 floor excluded (both groups) IFEval     682    161 28.389 26.307 30.472 1.718  1.528 1.908   0.000       0.000
+                               one model per org (org mean)   MMLU     216     72 12.658  9.454 15.862 1.023  0.744 1.303   0.000       0.000
+                               one model per org (org mean)   GPQA     216     72  2.395  1.380  3.411 0.589  0.318 0.860   0.000       0.000
+                               one model per org (org mean)   MATH     216     72 10.498  8.127 12.870 0.867  0.591 1.143   0.000       0.000
+                               one model per org (org mean)    BBH     216     72 12.629  9.147 16.112 0.954  0.677 1.232   0.000       0.000
+                               one model per org (org mean)   MUSR     216     72  1.647  0.525  2.769 0.374  0.106 0.643   0.004       0.003
+                               one model per org (org mean) IFEval     216     72 25.607 22.215 29.000 1.562  1.267 1.858   0.000       0.000
+                                     cap 5 per org (random)   MMLU     498    168 14.218 12.045 16.391 1.088  0.904 1.272   0.000       0.000
+                                     cap 5 per org (random)   GPQA     498    168  2.642  1.891  3.393 0.578  0.400 0.756   0.000       0.000
+                                     cap 5 per org (random)   MATH     498    168 11.423  9.798 13.047 0.855  0.674 1.036   0.000       0.000
+                                     cap 5 per org (random)    BBH     498    168 14.670 12.373 16.966 1.041  0.858 1.225   0.000       0.000
+                                     cap 5 per org (random)   MUSR     498    168  2.148  1.323  2.973 0.411  0.235 0.587   0.000       0.000
+                                     cap 5 per org (random) IFEval     498    168 28.748 26.502 30.995 1.656  1.459 1.852   0.000       0.000
+
+SIZE-STRATIFIED diff (chat-pre)
+bin     15-40    3-8   8-15    <=3    >40
+bench                                    
+BBH      8.29  12.59   4.05   3.01   7.53
+GPQA     0.38   2.13  -1.01   0.14   0.21
+IFEval  27.22  27.96  26.72  16.05  41.82
+MATH    11.13  10.40   4.25   4.55  13.49
+MMLU     6.11  12.54   3.89   2.87   4.69
+MUSR     1.63   3.11  -1.50  -2.13   4.91
+bin     15-40  3-8  8-15  <=3  >40
+bench                             
+BBH        21   85    37  118   13
+GPQA       21   85    37  118   13
+IFEval     21   85    37  118   13
+MATH       21   85    37  118   13
+MMLU       21   85    37  118   13
+MUSR       21   85    37  118   13
+
+OLS chat effect, org-cluster-robust SE; adj = + log10(params) + log10(params)^2
+ bench   n  clusters  raw_diff  raw_ci_lo  raw_ci_hi  adj_diff  adj_se  adj_ci_lo  adj_ci_hi  adj_p  adj_p_holm
+  MMLU 990       260    13.728      8.772     18.685     7.289   2.071      3.212     11.366  0.001       0.002
+  GPQA 990       260     2.379      0.963      3.795     0.568   0.534     -0.484      1.621  0.289       0.577
+  MATH 990       260    10.651      7.946     13.357     7.148   1.156      4.872      9.424  0.000       0.000
+   BBH 990       260    14.292      9.549     19.036     7.501   1.843      3.873     11.129  0.000       0.000
+  MUSR 990       260     2.079      0.710      3.449     0.609   0.587     -0.548      1.765  0.301       0.577
+IFEval 990       260    30.278     26.821     33.734    25.441   1.734     22.026     28.856  0.000       0.000
+
+ORG-CLUSTER BOOTSTRAP 95% CI for raw diff (4000 resamples)
+ bench  org_cluster_boot_lo  org_cluster_boot_hi
+  MMLU                 8.88                18.67
+  GPQA                 1.03                 3.83
+  MATH                 8.07                13.28
+   BBH                 9.70                19.17
+  MUSR                 0.83                 3.45
+IFEval                26.93                33.67
+orgs total 260 chat orgs 216 pre orgs 72
+top orgs chat: {'princeton-nlp': 45, 'Qwen': 29, 'T145': 24, 'MaziyarPanahi': 21, 'OpenBuddy': 21, 'jeffmeloy': 16, 'pankajmathur': 15, 'allenai': 12}
+top orgs pre: {'ontocord': 27, 'Qwen': 23, 'FlofloB': 21, 'google': 16, 'EleutherAI': 12, '01-ai': 11, 'tinycompany': 11, 'meta-llama': 10}
+
+Spearman corr (all 992):
+        MMLU  GPQA  MATH   BBH  MUSR  IFEval
+MMLU    1.00  0.80  0.86  0.96  0.63    0.71
+GPQA    0.80  1.00  0.69  0.81  0.67    0.50
+MATH    0.86  0.69  1.00  0.83  0.51    0.74
+BBH     0.96  0.81  0.83  1.00  0.66    0.70
+MUSR    0.63  0.67  0.51  0.66  1.00    0.35
+IFEval  0.71  0.50  0.74  0.70  0.35    1.00
+
+Spearman within chat:
+        MMLU  GPQA  MATH   BBH  MUSR  IFEval
+MMLU    1.00  0.76  0.81  0.93  0.62    0.66
+GPQA    0.76  1.00  0.62  0.80  0.69    0.46
+MATH    0.81  0.62  1.00  0.77  0.49    0.65
+BBH     0.93  0.80  0.77  1.00  0.67    0.63
+MUSR    0.62  0.69  0.49  0.67  1.00    0.33
+IFEval  0.66  0.46  0.65  0.63  0.33    1.00
+
+Spearman within pre:
+        MMLU  GPQA  MATH   BBH  MUSR  IFEval
+MMLU    1.00  0.77  0.81  0.91  0.60    0.58
+GPQA    0.77  1.00  0.71  0.72  0.55    0.45
+MATH    0.81  0.71  1.00  0.83  0.45    0.67
+BBH     0.91  0.72  0.83  1.00  0.57    0.61
+MUSR    0.60  0.55  0.45  0.57  1.00    0.30
+IFEval  0.58  0.45  0.67  0.61  0.30    1.00
+
+======= MATCHED PAIRS
+ bench  n_pairs  n_orgs  mean_diff  median_diff  sd_diff  pair_t_p  wilcoxon_p  frac_chat_higher  org_boot_lo  org_boot_hi     dz  wilcoxon_p_holm  pair_t_p_holm
+  MMLU       81      18     -0.243         0.22    4.182     0.602       0.946             0.531       -1.483        1.422 -0.058            0.946          0.656
+  GPQA       81      18     -0.781        -0.34    3.346     0.039       0.078             0.358       -1.678        0.424 -0.233            0.233          0.155
+  MATH       81      18      4.984         1.36    7.963     0.000       0.000             0.753        2.742        6.428  0.626            0.000          0.000
+   BBH       81      18      1.274         1.62    5.687     0.047       0.000             0.691       -0.087        2.309  0.224            0.000          0.155
+  MUSR       81      18     -0.517        -0.56    4.726     0.328       0.181             0.444       -1.651        0.632 -0.109            0.362          0.656
+IFEval       81      18     23.787        24.82   17.791     0.000       0.000             0.901       18.061       29.978  1.337            0.000          0.000
+pairs per org: {'Qwen': 23, 'ibm-granite': 9, 'meta-llama': 7, 'tiiuae': 7, 'HuggingFaceTB': 6, 'google': 6, '01-ai': 5, 'mistralai': 5, 'allenai': 2, 'deepseek-ai': 2, 'stabilityai': 2, 'Deci': 1, 'LLM360': 1, 'PrimeIntellect': 1, 'THUDM': 1, 'braindao': 1, 'nvidia': 1, 'upstage': 1}
+pair base-model size range (B): 0.13 140.62 median 7.62
+MMLU leave-one-org-out mean diff range -0.69 0.58
+GPQA leave-one-org-out mean diff range -1.09 -0.49
+MUSR leave-one-org-out mean diff range -0.75 -0.2
+
+MMLU pairs with chat<base:
+                                  chat                         base      d
+       meta-llama/Llama-2-70b-chat-hf    meta-llama/Llama-2-70b-hf -14.28
+                   google/gemma-7b-it              google/gemma-7b -13.92
+                  THUDM/glm-4-9b-chat               THUDM/glm-4-9b -10.87
+      Qwen/Qwen2.5-Coder-32B-Instruct       Qwen/Qwen2.5-Coder-32B  -9.89
+   mistralai/Mistral-7B-Instruct-v0.1    mistralai/Mistral-7B-v0.1  -6.64
+      Qwen/Qwen2.5-Coder-14B-Instruct       Qwen/Qwen2.5-Coder-14B  -6.47
+               Qwen/Qwen1.5-110B-Chat            Qwen/Qwen1.5-110B  -5.95
+       meta-llama/Llama-2-13b-chat-hf    meta-llama/Llama-2-13b-hf  -5.05
+            Qwen/Qwen2.5-14B-Instruct             Qwen/Qwen2.5-14B  -3.83
+            Qwen/Qwen2.5-72B-Instruct             Qwen/Qwen2.5-72B  -3.80
+         Qwen/Qwen2-57B-A14B-Instruct          Qwen/Qwen2-57B-A14B  -3.78
+      stabilityai/stablelm-2-12b-chat   stabilityai/stablelm-2-12b  -3.75
+               Qwen/Qwen2-7B-Instruct                Qwen/Qwen2-7B  -3.73
+              Qwen/Qwen2-72B-Instruct               Qwen/Qwen2-72B  -3.64
+       Qwen/Qwen2.5-Coder-7B-Instruct        Qwen/Qwen2.5-Coder-7B  -3.62
+                    01-ai/Yi-34B-Chat                 01-ai/Yi-34B  -3.54
+    upstage/SOLAR-10.7B-Instruct-v1.0     upstage/SOLAR-10.7B-v1.0  -2.91
+           tiiuae/falcon-40b-instruct            tiiuae/falcon-40b  -2.70
+                 google/gemma-2-9b-it            google/gemma-2-9b  -2.53
+           Qwen/Qwen2.5-0.5B-Instruct            Qwen/Qwen2.5-0.5B  -2.19
+             Qwen/Qwen2-0.5B-Instruct              Qwen/Qwen2-0.5B  -2.10
+ mistralai/Mixtral-8x7B-Instruct-v0.1  mistralai/Mixtral-8x7B-v0.1  -1.75
+mistralai/Mixtral-8x22B-Instruct-v0.1 mistralai/Mixtral-8x22B-v0.1  -1.74
+                01-ai/Yi-1.5-34B-Chat             01-ai/Yi-1.5-34B  -1.61
+            Qwen/Qwen2.5-32B-Instruct             Qwen/Qwen2.5-32B  -1.54
+               Qwen/Qwen1.5-0.5B-Chat            Qwen/Qwen1.5-0.5B  -1.05
+              Deci/DeciLM-7B-instruct               Deci/DeciLM-7B  -0.93
+  HuggingFaceTB/SmolLM2-1.7B-Instruct   HuggingFaceTB/SmolLM2-1.7B  -0.93
+               Qwen/Qwen1.5-1.8B-Chat            Qwen/Qwen1.5-1.8B  -0.87
+             Qwen/Qwen2.5-7B-Instruct              Qwen/Qwen2.5-7B  -0.87
+                 Qwen/Qwen1.5-4B-Chat              Qwen/Qwen1.5-4B  -0.71
+  PrimeIntellect/INTELLECT-1-Instruct   PrimeIntellect/INTELLECT-1  -0.64
+           Qwen/Qwen2.5-1.5B-Instruct            Qwen/Qwen2.5-1.5B  -0.62
+  HuggingFaceTB/SmolLM2-360M-Instruct   HuggingFaceTB/SmolLM2-360M  -0.58
+             Qwen/Qwen2-1.5B-Instruct              Qwen/Qwen2-1.5B  -0.56
+                Qwen/Qwen1.5-32B-Chat             Qwen/Qwen1.5-32B  -0.48
+                Qwen/Qwen1.5-14B-Chat             Qwen/Qwen1.5-14B  -0.28
+                   google/gemma-2b-it              google/gemma-2b  -0.14
+<=3B n 22 {'MMLU': np.float64(0.86), 'GPQA': np.float64(0.6), 'MATH': np.float64(1.88), 'BBH': np.float64(0.32), 'MUSR': np.float64(-1.0), 'IFEval': np.float64(13.71)}
+3-15B n 41 {'MMLU': np.float64(-0.17), 'GPQA': np.float64(-0.79), 'MATH': np.float64(5.72), 'BBH': np.float64(1.71), 'MUSR': np.float64(-0.06), 'IFEval': np.float64(24.49)}
+>15B n 18 {'MMLU': np.float64(-1.77), 'GPQA': np.float64(-2.44), 'MATH': np.float64(7.09), 'BBH': np.float64(1.44), 'MUSR': np.float64(-0.96), 'IFEval': np.float64(34.49)}
