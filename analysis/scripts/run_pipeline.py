@@ -2,7 +2,12 @@
 """Run validation and all analysis stages from any working directory."""
 from datetime import datetime, timezone
 from pathlib import Path
+import hashlib
 import platform
+import numpy
+import pandas
+import scipy
+import matplotlib
 import subprocess
 import sys
 
