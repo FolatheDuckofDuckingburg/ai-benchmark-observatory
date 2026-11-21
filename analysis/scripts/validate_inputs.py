@@ -16,6 +16,7 @@ def validate_file(group, path):
     if not path.is_file():
         raise FileNotFoundError(f"Missing {group} transcription: {path}")
     rows = []
+    unknown_parameter_rows = 0
     with path.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.reader(handle, delimiter="|")
         for line_number, row in enumerate(reader, start=1):
@@ -35,6 +36,8 @@ def validate_file(group, path):
             # The source transcription uses -1.00 and 0.00 as non-positive
             # parameter-size placeholders. Preserve these rows for score-only
             # analyses; the size-adjusted analysis excludes params <= 0.
+            if values[0] <= 0:
+                unknown_parameter_rows += 1
             if values[0] < 0 and values[0] != -1:
                 raise ValueError(f"{path}:{line_number}: unsupported negative parameter-count sentinel")
             if any(value < 0 or value > 100 for value in values[1:]):
@@ -43,7 +46,7 @@ def validate_file(group, path):
     if not rows:
         raise ValueError(f"{path}: no data rows")
     duplicates = len(rows) - len(set(rows))
-    print(f"{group}: {len(rows)} rows; {len(set(rows))} distinct model IDs; {duplicates} duplicate-ID rows")
+    print(f"{group}: {len(rows)} rows; {len(set(rows))} distinct model IDs; {duplicates} duplicate-ID rows; {unknown_parameter_rows} unknown-size rows")
     return len(rows)
 
 
