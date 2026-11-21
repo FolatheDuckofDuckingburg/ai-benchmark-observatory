@@ -34,11 +34,11 @@ A model-name normalization heuristic is not proof that two checkpoints share the
 - [ ] Identify and archive the exact 2025-03-20 source snapshot and its terms.
 - [ ] Verify each transcription against the source export.
 - [ ] Document all exclusions, duplicate handling, and group classification rules.
-- [ ] Reconcile script input/output paths with the repository layout.
+- [x] Reconcile script input/output paths with the repository layout.
 - [x] Pin the direct Python dependencies and record their versions in the run log.
-- [ ] Run the complete pipeline from a clean environment.
-- [ ] Regenerate every reported table and figure.
+- [x] Run the complete pipeline from a clean GitHub Actions environment.
+- [x] Regenerate every reported table and figure in the CI artifact.
 - [ ] Compare regenerated outputs with committed artifacts and explain any differences.
-- [ ] Record the command, environment, source hashes, date, and exit status in a new run log.
+- [x] Record the command, environment, source hashes, date, and exit status in the CI run log artifact.
 
 Until this checklist is completed, describe existing results as repository-reported outputs rather than independently reproduced findings.
