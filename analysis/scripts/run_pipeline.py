@@ -30,13 +30,13 @@ def main():
         log.write(f"started_utc={datetime.now(timezone.utc).isoformat()}\n")
         log.write(f"python={platform.python_version()}\n")
         log.write(f"platform={platform.platform()}\n")
-        log.write(f"numpy={numpy.__version__}\\n")
-        log.write(f"pandas={pandas.__version__}\\n")
-        log.write(f"scipy={scipy.__version__}\\n")
-        log.write(f"matplotlib={matplotlib.__version__}\\n")
+        log.write(f"numpy={numpy.__version__}\n")
+        log.write(f"pandas={pandas.__version__}\n")
+        log.write(f"scipy={scipy.__version__}\n")
+        log.write(f"matplotlib={matplotlib.__version__}\n")
         for source in (ROOT / "data" / "transcriptions" / "chat_rows.txt", ROOT / "data" / "transcriptions" / "pretrained_rows.txt"):
             digest = hashlib.sha256(source.read_bytes()).hexdigest()
-            log.write(f"sha256 {source.relative_to(ROOT)} {digest}\\n")
+            log.write(f"sha256 {source.relative_to(ROOT)} {digest}\n")
         for command in COMMANDS:
             log.write("\n$ " + " ".join(command) + "\n")
             log.flush()
