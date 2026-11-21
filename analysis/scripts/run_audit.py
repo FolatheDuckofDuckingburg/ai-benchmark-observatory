@@ -1,10 +1,18 @@
 import pandas as pd, numpy as np, re, json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+DATA = ROOT / "data" / "transcriptions"
+PROCESSED = ROOT / "data" / "processed"
+TABLES = ROOT / "results" / "tables"
+PROCESSED.mkdir(parents=True, exist_ok=True)
+TABLES.mkdir(parents=True, exist_ok=True)
 from scipy import stats
 rng=np.random.default_rng(20261121)
 cols=["name","params","IFEval","BBH","MATH","GPQA","MUSR","MMLU"]
 B=["MMLU","GPQA","MATH","BBH","MUSR","IFEval"]
-c=pd.read_csv("data/chat.txt",sep="|",names=cols); c["grp"]="chat"
-p=pd.read_csv("data/pretrained.txt",sep="|",names=cols); p["grp"]="pre"
+c=pd.read_csv(DATA / "chat_rows.txt",sep="|",names=cols); c["grp"]="chat"
+p=pd.read_csv(DATA / "pretrained_rows.txt",sep="|",names=cols); p["grp"]="pre"
 d=pd.concat([c,p],ignore_index=True); d["org"]=d.name.str.split("/").str[0]
 def holm(pv):
     pv=np.asarray(pv,float); o=np.argsort(pv); m=len(pv); adj=np.empty(m); run=0
@@ -95,12 +103,16 @@ def cboot(b,nb=4000):
         i=rng.integers(0,K,K); a=nc[i].sum(); q=npp[i].sum()
         if a>1 and q>1: res.append(sc_[i].sum()/a-sp[i].sum()/q)
     return np.percentile(res,[2.5,97.5])
-CB=pd.DataFrame([dict(bench=b,org_cluster_boot_lo=cboot(b)[0],org_cluster_boot_hi=cboot(b)[1]) for b in B]); print("\nORG-CLUSTER BOOTSTRAP 95% CI for raw diff (4000 resamples)"); print(CB.round(2).to_string(index=False))
+cb_rows=[]
+for b in B:
+    lo, hi = cboot(b)
+    cb_rows.append(dict(bench=b, org_cluster_boot_lo=lo, org_cluster_boot_hi=hi))
+CB=pd.DataFrame(cb_rows); print("\nORG-CLUSTER BOOTSTRAP 95% CI for raw diff (4000 resamples)"); print(CB.round(2).to_string(index=False))
 print("orgs total",d.org.nunique(),"chat orgs",c.assign(o=c.name.str.split('/').str[0]).o.nunique(),"pre orgs",p.assign(o=p.name.str.split('/').str[0]).o.nunique())
 print("top orgs chat:",d[d.grp=='chat'].org.value_counts().head(8).to_dict()); print("top orgs pre:",d[d.grp=='pre'].org.value_counts().head(8).to_dict())
 # --- 7. correlations
 print("\nSpearman corr (all 992):"); print(d[B].corr(method="spearman").round(2))
 for g in ["chat","pre"]:
     print(f"\nSpearman within {g}:"); print(d[d.grp==g][B].corr(method="spearman").round(2))
-T1.to_csv("out/table_rows.csv",index=False); T2.to_csv("out/table_consolidated.csv",index=False); S.to_csv("out/sensitivity.csv",index=False); ST.to_csv("out/size_strata.csv",index=False); OL.to_csv("out/ols_cluster.csv",index=False); CB.to_csv("out/cluster_bootstrap.csv",index=False)
-d.to_csv("out/combined_transcribed_data.csv",index=False)
+T1.to_csv(TABLES / "table_rows.csv",index=False); T2.to_csv(TABLES / "table_consolidated.csv",index=False); S.to_csv(TABLES / "sensitivity.csv",index=False); ST.to_csv(TABLES / "size_strata.csv",index=False); OL.to_csv(TABLES / "ols_cluster.csv",index=False); CB.to_csv(TABLES / "cluster_bootstrap.csv",index=False)
+d.to_csv(PROCESSED / "combined_transcribed_data.csv",index=False)
