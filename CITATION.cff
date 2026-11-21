@@ -1,0 +1,21 @@
+
+cff-version: 1.2.0
+message: "If you use this dataset or analysis, please cite it as follows."
+title: "AI Benchmark Observatory"
+type: dataset
+authors:
+  - name: "FolatheDuckofDuckingburg"
+version: 0.1.0
+date-released: 2026-11-21
+url: "https://huggingface.co/datasets/FolatheDuckofDuckingburg/ai-benchmark-observatory"
+abstract: >
+  An observational study comparing chat-tuned and pretrained language
+  models across reasoning and instruction-following benchmarks from
+  an archived Open LLM Leaderboard snapshot.
+keywords:
+  - language models
+  - reasoning benchmarks
+  - pretrained models
+  - chat models
+  - statistical analysis
+  - reproducibility
