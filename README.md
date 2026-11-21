@@ -1,44 +1,46 @@
 # AI Benchmark Observatory
-<img width="1536" height="1024" alt="AI Benchmark Observatory Infographic" src="https://github.com/user-attachments/assets/606cb841-32b9-4332-837a-00c6dfd0aa90" />
 
-## Overview
-AI Benchmark Observatory investigates the relationship between conversational fine-tuning and performance on complex reasoning benchmarks.
+AI Benchmark Observatory investigates whether chat-tuned language models perform differently from pretrained base models on reasoning and instruction-following benchmarks.
 
-## Research Question
+## Research question
 
-Do chat AI models perform better at complex reasoning than raw pretrained base models?
+**Do chat AI models perform better at complex reasoning than raw pretrained base models?**
 
-## Research Objectives
+The study compares model scores across six benchmarks using an archived Open LLM Leaderboard snapshot dated **20 March 2025**: MMLU-Pro, GPQA, MATH Level 5, BBH, MuSR, and IFEval.
 
-- Compare benchmark performance between chat and pretrained models.
-- Investigate differences across reasoning-oriented benchmarks.
-- Examine statistical significance and uncertainty.
-- Identify limitations in existing benchmark comparisons.
+This is observational research. Group differences do not establish that conversational fine-tuning caused any performance difference. Architecture, parameter count, training data, model-family composition, and evaluation conditions may also matter.
 
-## Data Sources
+## Repository map
 
-The research uses an archived Open LLM Leaderboard snapshot dated March 20, 2025.
+```text
+.
+├── analysis/scripts/       # Analysis and pairing scripts
+├── data/processed/         # Combined/transformed data and pair lists
+├── data/transcriptions/    # Text transcriptions of leaderboard rows
+├── results/figures/        # Existing figures
+├── results/logs/           # Existing run log
+├── results/tables/         # Existing statistical outputs
+├── docs/                   # Reproducibility and provenance notes
+├── CITATION.cff
+├── LICENSE
+└── requirements.txt
+```
 
-Original data sources and redistribution permissions must be documented separately.
+## Where to start
 
-## Benchmarks
+- Read [the reproducibility notes](docs/REPRODUCIBILITY.md) before attempting to rerun or interpret the analyses.
+- See [CITATION.cff](CITATION.cff) for citation metadata.
+- Install the listed Python dependencies with `python -m pip install -r requirements.txt`.
 
-- MMLU-Pro
-- GPQA
-- MATH Level 5
-- BBH
-- IFEval
-- MuSR
+## Analysis status and interpretation
 
-## Methodology
+The repository contains analysis scripts, transcribed/processed data, tables, figures, and a run log. Their presence does **not** by itself establish that every script can be rerun from this reorganized layout or that all outputs were regenerated from the archived source snapshot. Consult the reproducibility notes before interpreting any result as independently reproduced.
 
-The analysis includes descriptive statistics, independent-samples comparisons, and Welch's t-test where appropriate.
+Do not treat exploratory matched-family comparisons or heuristic model-family matching as definitive pairing. Report the exact sample, filtering, matching, and uncertainty procedure used for each result.
 
-## Limitations
+## Data provenance
 
-This is observational research. Differences between chat and pretrained models cannot independently establish that conversational fine-tuning causes improved reasoning performance.
-
-Other factors, including model architecture, parameter count, training data, and evaluation conditions, may influence results.
+The research references an archived Open LLM Leaderboard snapshot dated 2025-03-20. The original snapshot, its source URL, acquisition details, and redistribution permissions should be documented separately. Files here are identified as transcriptions or processed artifacts; do not assume they are the original leaderboard export.
 
 ## Maintainer
 
@@ -46,8 +48,8 @@ FolatheDuckofDuckingburg
 
 ## Citation
 
-Citation information will be provided in CITATION.cff.
+See [CITATION.cff](CITATION.cff). The citation metadata currently points to the Hugging Face dataset record.
 
 ## License
 
-MIT applies only to original materials that the researcher has the rights to license under these terms. Third-party materials retain their applicable licenses and restrictions.
+The MIT license applies only to original materials that the researcher has the rights to license under those terms. Third-party materials retain their applicable licenses and restrictions.
