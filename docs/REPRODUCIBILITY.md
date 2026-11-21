@@ -13,6 +13,10 @@ This repository compares chat-tuned and pretrained model entries across MMLU-Pro
 - The pipeline consumes `data/transcriptions/chat_rows.txt` and `data/transcriptions/pretrained_rows.txt`. It does not independently verify those transcriptions against the original 2025-03-20 leaderboard export. A successful pipeline run therefore establishes computational reproducibility from the committed transcriptions, not source-data provenance or transcription accuracy.
 - The pipeline writes regenerated tables to `results/tables/`, figures to `results/figures/`, and a fresh execution log to `results/logs/latest_pipeline_run.log`. The existing `results/logs/run_log.txt` is a historical artifact and is not overwritten.
 
+## Current automated run
+
+The GitHub Actions run on 2026-11-21 completed successfully on Python 3.11.18 with NumPy 2.4.6, pandas 3.1.1, SciPy 1.17.1, and Matplotlib 3.11.2. The validator found 717 chat rows and 275 pretrained rows. It also found one chat row with a parameter-count placeholder of -1.00 and one pretrained row with a placeholder of 0.00; these rows remain in score-only comparisons but are excluded from analyses requiring positive parameter counts. The pipeline log records source-transcription SHA-256 hashes and dependency versions.
+
 ## Data handling
 
 The repository includes transcribed text files, a combined CSV, derived statistical CSVs, and figures. Preserve the distinction between the original leaderboard snapshot, transcribed or manually assembled source rows, cleaned/combined analysis data, and derived tables/visualizations.
@@ -23,7 +27,7 @@ Record the source URL, snapshot date, retrieval date, file hashes, transformatio
 
 The comparison is observational, not a randomized experiment. Chat and pretrained groups may differ in architecture, parameter count, training data, model family, and evaluation coverage. Welch tests, effect sizes, matching heuristics, size adjustment, and cluster bootstrap analyses answer different questions and rely on different assumptions. Label exploratory analyses as exploratory and report sample sizes, exclusions, matching rules, confidence intervals, and multiple-comparison corrections.
 
-A model-name normalization heuristic is not proof that two checkpoints share the same base model. Validate pairings against authoritative model cards or source metadata before treating them as matched pairs.
+A model-name normalization heuristic is not proof that two checkpoints share the same base model. Validate pairings against authoritative model cards or source metadata before treating them as matched pairs. The current matched-pair analysis contains 81 heuristic pairs across 18 repository organizations. Its paired t-test and Wilcoxon p-values operate at the pair level and do not account for multiple pairs from the same organization; the organization-cluster bootstrap intervals do account for that grouping. Treat those pair-level p-values as exploratory until cluster-aware inference is added.
 
 ## Reproduction checklist
 
@@ -31,7 +35,7 @@ A model-name normalization heuristic is not proof that two checkpoints share the
 - [ ] Verify each transcription against the source export.
 - [ ] Document all exclusions, duplicate handling, and group classification rules.
 - [ ] Reconcile script input/output paths with the repository layout.
-- [ ] Pin Python and package versions.
+- [x] Pin the direct Python dependencies and record their versions in the run log.
 - [ ] Run the complete pipeline from a clean environment.
 - [ ] Regenerate every reported table and figure.
 - [ ] Compare regenerated outputs with committed artifacts and explain any differences.
