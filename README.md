@@ -1,5 +1,8 @@
 # AI Benchmark Observatory
 
+<img width="1536" height="1024" alt="AI Benchmark Observatory Infographic" src="https://github.com/user-attachments/assets/a56020a0-9ec1-4429-83ce-9c7ea1e8f825" />
+
+
 AI Benchmark Observatory investigates whether chat-tuned language models perform differently from pretrained base models on reasoning and instruction-following benchmarks.
 
 ## Research question
